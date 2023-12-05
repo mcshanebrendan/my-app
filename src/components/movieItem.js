@@ -4,7 +4,7 @@ import  Button  from 'react-bootstrap/Button';
 import axios from 'axios';
 //importing react button
 //below I add code so that the page reloads when a movie item has been deleted
-function BookItem(props) {
+function MovieItem(props) {
 
     //below I add a delete button then I add functionality that deletes the movie item
 
