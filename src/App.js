@@ -17,13 +17,13 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-       <Navbar bg="dark" data-bs-theme="dark">
+       <Navbar style={{backgroundColor:"greenyellow"}} >
         <Container>
-          <Navbar.Brand href="/">Navbar</Navbar.Brand>
+          <Navbar.Brand  style= {{color: "darkviolet"}} href="/">Movie Database</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/create">Create</Nav.Link>
-            <Nav.Link href="/read">Read</Nav.Link>
+            <Nav.Link style= {{color: "darkviolet"}} href="/">Home</Nav.Link>
+            <Nav.Link style= {{color: "darkviolet"}}  href="/create">Add Movie</Nav.Link>
+            <Nav.Link style= {{color: "darkviolet"}}  href="/read">Read/Edit Movie</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -33,7 +33,11 @@ function App() {
         <Route path='/create' element={<Create></Create>}></Route>
         <Route path='/edit/:id' element={<Edit></Edit>}></Route>
       </Routes>
-      <h1>Brendan's Project 2023</h1>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <h4 style={{backgroundColor: "yellowgreen"}}><b>Brendan's Movie Database</b></h4>
       {/* <Header></Header>
       <Content></Content>
       <Footer /> */}

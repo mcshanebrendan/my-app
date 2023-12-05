@@ -33,6 +33,7 @@ async function main() {
 
 const movieSchema = new mongoose.Schema({
   title:String,
+  cover:String,
   genre:String,
   releaseYear:Number,
   director:String
@@ -65,6 +66,7 @@ app.post('/api/movie', (req,res)=>{
 
     movieModel.create({
       title:req.body.title,
+      cover:req.body.cover,
       genre:req.body.genre,
       releaseYear:req.body.releaseYear
     })

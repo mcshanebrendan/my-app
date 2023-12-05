@@ -14,6 +14,7 @@ function MovieItem(props) {
                 <Card.Header>{props.myMovie.title}</Card.Header>
                 <Card.Body>
                     <blockquote className="blockquote mb-0">
+                        <img src={props.myMovie.cover}></img>
                         <footer>
                             {props.myMovie.title
                             }

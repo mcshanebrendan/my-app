@@ -4,6 +4,7 @@ import axios from "axios";
 function Create() {
 
     const [title, setTitle] = useState('');
+    const [cover, setCover] = useState('');
     const [genre, setGenre] = useState('');
     const [releaseYear, setreleaseYear] = useState('');
     const [director, setDirector] = useState('');
@@ -18,6 +19,7 @@ function Create() {
 
         const movie = {
             title:title,
+            cover:cover,
             genre:genre,
             releaseYear:releaseYear,
             director:director
@@ -31,7 +33,7 @@ function Create() {
     // some comment
     return (
         <div>
-            <h2>Hello from create Component!</h2>
+            <h2>Add a movie to my database! </h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Add Movie Title: </label>
@@ -39,6 +41,14 @@ function Create() {
                         className="form-control"
                         value={title}
                         onChange={(e) => { setTitle(e.target.value) }}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Add Movie Cover: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={cover}
+                        onChange={(e) => { setCover(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">

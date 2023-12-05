@@ -40,7 +40,7 @@ function Read() {
 
     return (
         <div>
-            <h2>Hello from Read Component!</h2>
+            <h2>Read/Edit our Movie database!</h2>
             <Movies myMovies={data} ReloadData={Reload}></Movies>
         </div>
     );

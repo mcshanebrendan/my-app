@@ -6,6 +6,7 @@ export default function Edit() {
     let {id} = useParams();
 
     const [title, setTitle] = useState('');
+    const [cover, setCover] = useState('');
     const [genre, setGenre] = useState('');
     const [releaseYear, setreleaseYear] = useState('');
     const [director, setDirector] = useState('');
@@ -18,6 +19,7 @@ export default function Edit() {
             axios.get('http://localhost:4000/api/movie/'+id)
             .then((response)=>{
                 setTitle(response.data.title);
+                setCover(response.data.cover);
                 setGenre(response.data.genre);
                 setreleaseYear(response.data.releaseYear);
                 setDirector(response.data.director)
@@ -35,6 +37,7 @@ export default function Edit() {
 
         const movie = {
             title:title,
+            cover:cover,
             genre:genre,
             releaseYear:releaseYear,
             director:director
@@ -59,6 +62,14 @@ export default function Edit() {
                         className="form-control"
                         value={title}
                         onChange={(e) => { setTitle(e.target.value) }}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Edit Movie Cover: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={cover}
+                        onChange={(e) => { setCover(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">
