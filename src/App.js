@@ -9,11 +9,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import React, { useEffect } from 'react';
 import Create from './components/create';
 import Read from './components/read';
 import Edit from './components/edit';
+import ReviewForm from './components/reviews';
 
 function App() {
+
   return (
     <BrowserRouter>
     <div className="App">
@@ -24,6 +27,7 @@ function App() {
             <Nav.Link style= {{color: "darkviolet"}} href="/">Home</Nav.Link>
             <Nav.Link style= {{color: "darkviolet"}}  href="/create">Add Movie</Nav.Link>
             <Nav.Link style= {{color: "darkviolet"}}  href="/read">Read/Edit Movie</Nav.Link>
+            <Nav.Link style={{ color: 'darkviolet' }} href="/reviews">Review a Movie!</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -32,6 +36,7 @@ function App() {
         <Route path='/read' element={<Read></Read>}></Route>
         <Route path='/create' element={<Create></Create>}></Route>
         <Route path='/edit/:id' element={<Edit></Edit>}></Route>
+        <Route path="/reviews" element={<ReviewForm />} /> {/* New route for ReviewForm */}
       </Routes>
       <br/>
       <br/>
