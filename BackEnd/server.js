@@ -65,8 +65,8 @@ app.post('/api/movie', (req,res)=>{
 
     movieModel.create({
       title:req.body.title,
-      cover:req.body.cover,
-      author:req.body.author
+      genre:req.body.genre,
+      releaseYear:req.body.releaseYear
     })
     .then(()=>{ res.send("Movie Created")})
     .catch(()=>{ res.send("Movie NOT Created")});

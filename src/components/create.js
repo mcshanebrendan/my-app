@@ -4,20 +4,23 @@ import axios from "axios";
 function Create() {
 
     const [title, setTitle] = useState('');
-    const [cover, setCover] = useState('');
-    const [author, setAuthor] = useState('');
+    const [genre, setGenre] = useState('');
+    const [releaseYear, setreleaseYear] = useState('');
+    const [director, setDirector] = useState('');
 
     const handleSubmit = (e)=>{
         e.preventDefault();
 
         console.log("Title: "+title+
-        " Cover: "+cover+
-        " Author: "+author);
+        " Genre: "+genre+
+        " Release Year: "+releaseYear
+        + " Director: "+director);
 
         const movie = {
             title:title,
-            cover:cover,
-            author:author
+            genre:genre,
+            releaseYear:releaseYear,
+            director:director
         };
 
         axios.post('http://localhost:4000/api/movie',movie)
@@ -42,24 +45,24 @@ function Create() {
                     <label>Add Movie Genre: </label>
                     <input type="text"
                         className="form-control"
-                        value={cover}
-                        onChange={(e) => { setCover(e.target.value) }}
+                        value={genre}
+                        onChange={(e) => { setGenre(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">
                     <label>Add Release Year: </label>
                     <input type="number"
                         className="form-control"
-                        value={author}
-                        onChange={(e) => { setAuthor(e.target.value) }}
+                        value={releaseYear}
+                        onChange={(e) => { setreleaseYear(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">
                     <label>Add Movie Director: </label>
                     <input type="text"
                         className="form-control"
-                        value={cover}
-                        onChange={(e) => { setCover(e.target.value) }}
+                        value={director}
+                        onChange={(e) => { setDirector(e.target.value) }}
                     />
                 </div>
                 <div>

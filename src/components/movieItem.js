@@ -11,12 +11,23 @@ function MovieItem(props) {
     return (
         <div>
             <Card>
-                <Card.Header>{props.Movie.title}</Card.Header>
+                <Card.Header>{props.myMovie.title}</Card.Header>
                 <Card.Body>
                     <blockquote className="blockquote mb-0">
-                        <img src={props.myMovie.cover}></img>
                         <footer>
-                            {props.myMovie.author 
+                            {props.myMovie.title
+                            }
+                        </footer>
+                        <footer>
+                            {props.myMovie.genre
+                            }
+                        </footer>
+                        <footer>
+                            {props.myMovie.releaseYear
+                            }
+                        </footer>
+                        <footer>
+                        {props.myMovie.director
                             }
                         </footer>
                     </blockquote>

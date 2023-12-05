@@ -6,8 +6,9 @@ export default function Edit() {
     let {id} = useParams();
 
     const [title, setTitle] = useState('');
-    const [cover, setCover] = useState('');
-    const [author, setAuthor] = useState('');
+    const [genre, setGenre] = useState('');
+    const [releaseYear, setreleaseYear] = useState('');
+    const [director, setDirector] = useState('');
 
     const navigate = useNavigate();
 
@@ -17,8 +18,9 @@ export default function Edit() {
             axios.get('http://localhost:4000/api/movie/'+id)
             .then((response)=>{
                 setTitle(response.data.title);
-                setCover(response.data.cover);
-                setAuthor(response.data.author);
+                setGenre(response.data.genre);
+                setreleaseYear(response.data.releaseYear);
+                setDirector(response.data.director)
             })
             .catch(
                 (error)=>{
@@ -33,8 +35,9 @@ export default function Edit() {
 
         const movie = {
             title:title,
-            cover:cover,
-            author:author
+            genre:genre,
+            releaseYear:releaseYear,
+            director:director
         }
 
         axios.put('http://localhost:4000/api/movie/'+id, movie)
@@ -62,24 +65,24 @@ export default function Edit() {
                     <label>Edit Movie Genre: </label>
                     <input type="text"
                         className="form-control"
-                        value={cover}
-                        onChange={(e) => { setCover(e.target.value) }}
+                        value={genre}
+                        onChange={(e) => { setGenre(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">
                     <label>Edit Release Year: </label>
                     <input type="number"
                         className="form-control"
-                        value={author}
-                        onChange={(e) => { setAuthor(e.target.value) }}
+                        value={releaseYear}
+                        onChange={(e) => { setreleaseYear(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">
                     <label>Edit Movie Director: </label>
                     <input type="text"
                         className="form-control"
-                        value={cover}
-                        onChange={(e) => { setCover(e.target.value) }}
+                        value={director}
+                        onChange={(e) => { setDirector(e.target.value) }}
                     />
                 </div>
                 <div>
