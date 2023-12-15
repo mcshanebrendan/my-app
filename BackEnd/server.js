@@ -38,7 +38,7 @@ const movieSchema = new mongoose.Schema({
   releaseYear:Number,
   director:String
 })
-
+//tidy
 const movieModel = mongoose.model('sdfsdfsdfsdfsdfffffffffffff423', movieSchema);
 
 //server side code for deleting movie
@@ -83,6 +83,7 @@ app.get('/api/movies', async(req, res)=>{
     
   let movie = await movieModel.find({});
   res.json(movie);
+  //res.status(200).json
 })
 
 app.get('/api/movie/:identifier',async (req,res)=>{
