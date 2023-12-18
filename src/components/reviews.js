@@ -1,102 +1,49 @@
-// src/components/reviews.js
+import React, { useState } from 'react';
+import axios from 'axios';
 
-//this utilises local storage to save personal movie reviews onto this website
+function Review() {
+  const [movieTitle, setMovieTitle] = useState('');
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState('');
 
-import React, { useState, useEffect } from 'react';
-// import './ReviewForm.css';
-
-const ReviewForm = () => {
-  const [reviews, setReviews] = useState(() => {
-    // Load reviews from localStorage on component mount
-    const storedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
-    return storedReviews;
-  });
-
-  const [review, setReview] = useState({
-    movieName: '',
-    rating: 0,
-    comment: '',
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setReview((prevReview) => ({
-      ...prevReview,
-      [name]: value,
-    }));
-  };
-
-  const handleRatingChange = (newRating) => {
-    setReview((prevReview) => ({
-      ...prevReview,
-      rating: newRating,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Add the new review to the reviews array
-    const newReview = {
-      id: reviews.length + 1, // Assuming each review has a unique ID
-      ...review,
-    };
-
-    // Save reviews to localStorage after adding a new review
-    localStorage.setItem('reviews', JSON.stringify([...reviews, newReview]));
-
-    // Update the state with the new reviews
-    setReviews((prevReviews) => [...prevReviews, newReview]);
-
-    // Reset the form
-    setReview({
-      movieName: '',
-      rating: 0,
-      comment: '',
-    });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      // Send the movie title, rating, and comment to the server
+      await axios.post('http://localhost:4000/api/review', { movieTitle, rating, comment });
+      alert('Review submitted successfully');
+      setMovieTitle(''); // Reset the movie title
+      setRating(0); // Reset the rating
+      setComment(''); // Reset the comment field
+    } catch (error) {
+      console.error('Error submitting review', error);
+      alert('Failed to submit review');
+    }
   };
 
   return (
-    <div className="review-form-container">
-      <h2>Post a Review</h2>
+    <div>
+      <h3>Submit a Review</h3>
       <form onSubmit={handleSubmit}>
         <label>
-          Movie Name:
-          <input type="text" name="movieName" value={review.movieName} onChange={handleInputChange} required />
+          Movie Title:
+          <input type="text" value={movieTitle} onChange={(e) => setMovieTitle(e.target.value)} />
         </label>
         <br />
         <label>
           Rating:
-          <select name="rating" value={review.rating} onChange={(e) => handleRatingChange(Number(e.target.value))} required>
-            {[1, 2, 3, 4, 5].map((rating) => (
-              <option key={rating} value={rating}>
-                {rating}
-              </option>
-            ))}
-          </select>
+          <input type="number" min="1" max="5" value={rating} onChange={(e) => setRating(e.target.value)} />
         </label>
         <br />
         <label>
           Comment:
-          <textarea name="comment" value={review.comment} onChange={handleInputChange} required />
+          <textarea value={comment} onChange={(e) => setComment(e.target.value)} />
         </label>
         <br />
         <button type="submit">Submit Review</button>
       </form>
-
-      <div>
-        <h2>Reviews</h2>
-        {reviews.map((existingReview) => (
-          <div key={existingReview.id}>
-            <h3>{existingReview.movieName}</h3>
-            <p>Rating: {existingReview.rating}/5</p>
-            <p>{existingReview.comment}</p>
-            <hr />
-          </div>
-        ))}
-      </div>
     </div>
   );
-};
+}
 
-export default ReviewForm;
+export default Review;
