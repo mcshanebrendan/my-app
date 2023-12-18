@@ -75,6 +75,8 @@ app.delete('/api/movie/:id', async(req, res) => {
 app.post('/api/review', async(req, res) => {
   try {
     const { comment } = req.body;
+    //outputting review to console on server
+    console.log(req.body)
     const newReview = new Review({ comment });
     await newReview.save();
     res.status(200).json(newReview);
