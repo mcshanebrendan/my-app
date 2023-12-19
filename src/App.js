@@ -13,6 +13,7 @@ import ReviewForm from './components/reviews';
 import History from './components/history';
 import Trailers from './components/trailers';
 import TopMovies21stCentury from './components/modernTrailers';
+import imagehome from './assets/images/imagehome.png'
 
 function App() {
   return (
@@ -42,9 +43,10 @@ function App() {
           <Route path="/trailers" element={<Trailers/>} />
           <Route path="/modernTrailers" element={<TopMovies21stCentury />} />
         </Routes>
-        {/* adding linebreaks to put the footer further down the page*/}
+        
+        <img src={imagehome} alt="Lumiere" className="big-image" />
+         {/* adding linebreaks to put the footer further down the page*/}
         <br /><br /><br /><br /><br />
-         
         {/* <h4 style={{ backgroundColor: "#0056b3", color: "gold" , fontFamily: 'Pacifico'}}><b>Brendan's Movie Database</b></h4> */}
         <footer style={{ backgroundColor: "#0056b3", color: "gold" , fontFamily: 'Pacifico'}}>Brendan's Movie Database</footer>
       </div>

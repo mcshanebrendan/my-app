@@ -10,6 +10,10 @@
   /* You can also set height if needed */
 }
 
+.big-image {
+  width: 450px;
+}
+
 
 .App-logo {
   height: 40vmin;
