@@ -4,6 +4,10 @@ import lumiere from '../assets/images/lumiere.jpg'
 import mickey from '../assets/images/mickey.jpg'
 import ET from '../assets/images/ET.jpg'
 import nflix from '../assets/images/nflix.jpg'
+//imports for page buttons
+import React from 'react';
+import { Link } from 'react-router-dom';
+//this page contains css
 function History() {
     return (
       <div className="history-container" style= {{fontFamily: 'Roboto, sans-serif'}} >
@@ -37,6 +41,26 @@ function History() {
           Today, film continues to evolve, with diverse voices emerging from different parts of the world, and new technologies like virtual reality opening up unprecedented possibilities for storytelling. The history of film is not just a story of technological advancement but a reflection of human creativity and cultural evolution.
         </p>
         <img src={nflix} alt="Netflix" className="small-image" />
+        <br /><br /><br /><br />
+        {/* Adding buttons at the bottom this page to return to other pages */}
+        <Link to="/">
+                <button className="stylish-button">Home</button>
+            </Link>
+            <Link to="/create">
+                <button className="stylish-button">Add</button>
+            </Link>
+            <Link to="/read">
+                <button className="stylish-button">Read</button>
+            </Link>
+            <Link to="/reviews">
+                <button className="stylish-button">Reviews</button>
+            </Link>
+            <Link to="/trailers">
+                <button className="stylish-button">Old Trailers</button>
+            </Link>
+            <Link to="/modernTrailers">
+                <button className="stylish-button">New Trailers</button>
+            </Link>
       </div>
     );
   }

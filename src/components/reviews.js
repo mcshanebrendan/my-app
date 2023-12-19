@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Review() {
   const [movieTitle, setMovieTitle] = useState('');
@@ -23,7 +24,7 @@ function Review() {
 
   return (
     <div>
-      <h3>Submit a Review</h3>
+      <h3 style={{ color: "gold", fontWeight: "bold" }}>Submit a Review</h3>
       <form onSubmit={handleSubmit}>
         <label>
           Movie Title:
@@ -42,7 +43,29 @@ function Review() {
         <br />
         <button type="submit">Submit Review</button>
       </form>
+      <br></br><br></br><br></br>
+            {/* Adding buttons at the bottom this page to return to other pages */}
+            <Link to="/">
+                <button className="stylish-button">Home</button>
+            </Link>
+            <Link to="/create">
+                <button className="stylish-button">Add</button>
+            </Link>
+            <Link to="/read">
+                <button className="stylish-button">Read</button>
+            </Link>
+            <Link to="/history">
+                <button className="stylish-button">History</button>
+            </Link>
+            <Link to="/trailers">
+                <button className="stylish-button">Trailers</button>
+            </Link>
+            <Link to="/modernTrailers">
+                <button className="stylish-button">New Trailers</button>
+            </Link>
     </div>
+
+
   );
 }
 

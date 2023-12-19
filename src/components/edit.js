@@ -1,6 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+//imports for page buttons
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Edit() {
     let {id} = useParams();
@@ -54,7 +57,7 @@ export default function Edit() {
     }
     return (
         <div>
-            <h2>Hello from Edit component!</h2>
+            <h2 style={{ color: "gold", fontWeight: "bold" }}>Hello from Edit component!</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Edit Movie Title: </label>
@@ -102,6 +105,26 @@ export default function Edit() {
                         </input>
                 </div>
             </form>
+
+            {/* Adding buttons at the bottom this page to return to other pages */}
+            <Link to="/">
+                <button className="stylish-button">Home</button>
+            </Link>
+            <Link to="/read">
+                <button className="stylish-button">Read</button>
+            </Link>
+            <Link to="/reviews">
+                <button className="stylish-button">Reviews</button>
+            </Link>
+            <Link to="/history">
+                <button className="stylish-button">History</button>
+            </Link>
+            <Link to="/trailers">
+                <button className="stylish-button">Trailers</button>
+            </Link>
+            <Link to="/modernTrailers">
+                <button className="stylish-button">New Trailers</button>
+            </Link>
 
         </div>
     );

@@ -11,6 +11,8 @@ import Read from './components/read';
 import Edit from './components/edit';
 import ReviewForm from './components/reviews';
 import History from './components/history';
+import Trailers from './components/trailers';
+import TopMovies21stCentury from './components/modernTrailers';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
               <Nav.Link href="/read" style={{ color: "#FFF" }}>Read/Edit Movie</Nav.Link>
               <Nav.Link href="/reviews" style={{ color: "#FFF" }}>Review a Movie!</Nav.Link>
               <Nav.Link href="/history" style={{ color: "#FFF" }}>History</Nav.Link>
+              <Nav.Link href="/trailers" style={{ color: "#FFF" }}>Old Movie Trailers</Nav.Link>
+              <Nav.Link href="/modernTrailers" style={{ color: "#FFF" }}>New Movie Trailers</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
@@ -35,11 +39,12 @@ function App() {
           <Route path='/edit/:id' element={<Edit />} />
           <Route path="/reviews" element={<ReviewForm />} />
           <Route path="/history" element={<History/>} />
+          <Route path="/trailers" element={<Trailers/>} />
+          <Route path="/modernTrailers" element={<TopMovies21stCentury />} />
         </Routes>
-        <br />
-        <br />
-        <br />
-        <br />
+        {/* adding linebreaks to put the footer further down the page*/}
+        <br /><br /><br /><br /><br />
+         
         {/* <h4 style={{ backgroundColor: "#0056b3", color: "gold" , fontFamily: 'Pacifico'}}><b>Brendan's Movie Database</b></h4> */}
         <footer style={{ backgroundColor: "#0056b3", color: "gold" , fontFamily: 'Pacifico'}}>Brendan's Movie Database</footer>
       </div>
