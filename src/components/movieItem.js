@@ -14,6 +14,7 @@ function MovieItem(props) {
                 <Card.Header>{props.myMovie.title}</Card.Header>
                 <Card.Body>
                     <blockquote className="blockquote mb-0">
+                        {/* shows cover that was added to database */}
                         <img src={props.myMovie.cover}></img>
                         <footer>
                             {props.myMovie.title
@@ -33,11 +34,12 @@ function MovieItem(props) {
                         </footer>
                     </blockquote>
                 </Card.Body>
+                {/* edit button */}
                 <Link to={'/edit/'+props.myMovie._id} className='btn btn-primary'>Edit</Link>
                 <Button variant='danger' onClick={
                     (e)=>{
                         e.preventDefault();
-
+                        //deletes movie
                         axios.delete('http://localhost:4000/api/movie/'+props.myMovie._id)
                         .then((res)=>{
                             let reload = props.Reload();

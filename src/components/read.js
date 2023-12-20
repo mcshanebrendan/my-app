@@ -11,7 +11,7 @@ function Read() {
 
   useEffect(
     ()=>{
-        
+        //reads from port 4000 server
         axios.get('http://localhost:4000/api/movies')
         .then(
             (response)=>{
@@ -44,6 +44,7 @@ function Read() {
     return (
         <div>
             <h2 style={{ color: "gold", fontWeight: "bold" }}>Read/Edit our Movie database!</h2>
+            {/* shows movie database */}
             <Movies myMovies={data} ReloadData={Reload}></Movies>
             <br /><br />
             {/* Adding buttons at the bottom this page to return to other pages */}

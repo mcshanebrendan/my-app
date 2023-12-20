@@ -55,6 +55,7 @@ export default function Edit() {
                 console.log(error)
             });
     }
+    // html code for aediting movies to database, you edit title, cover, genre, director and release year
     return (
         <div>
             <h2 style={{ color: "gold", fontWeight: "bold" }}>Hello from Edit component!</h2>
@@ -64,6 +65,7 @@ export default function Edit() {
                     <input type="text"
                         className="form-control"
                         value={title}
+                        //edits title and sets it
                         onChange={(e) => { setTitle(e.target.value) }}
                     />
                 </div>
@@ -72,6 +74,7 @@ export default function Edit() {
                     <input type="text"
                         className="form-control"
                         value={cover}
+                        //edits cover and sets it
                         onChange={(e) => { setCover(e.target.value) }}
                     />
                 </div>
@@ -80,6 +83,7 @@ export default function Edit() {
                     <input type="text"
                         className="form-control"
                         value={genre}
+                        //edits genre and sets it
                         onChange={(e) => { setGenre(e.target.value) }}
                     />
                 </div>
@@ -88,6 +92,7 @@ export default function Edit() {
                     <input type="number"
                         className="form-control"
                         value={releaseYear}
+                        //edits release year and sets it
                         onChange={(e) => { setreleaseYear(e.target.value) }}
                     />
                 </div>
@@ -96,10 +101,12 @@ export default function Edit() {
                     <input type="text"
                         className="form-control"
                         value={director}
+                        //edits director and sets it
                         onChange={(e) => { setDirector(e.target.value) }}
                     />
                 </div>
                 <div>
+                    {/* submit button */}
                     <input type="submit"
                     value="Edit Movie">
                         </input>

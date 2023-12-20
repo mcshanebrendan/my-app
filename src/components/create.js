@@ -1,3 +1,4 @@
+//import useState and axios
 import { useState } from "react";
 import axios from "axios";
 //imports for page buttons
@@ -5,7 +6,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Create() {
-
+    //array for title, cover, genre, release year and director
     const [title, setTitle] = useState('');
     const [cover, setCover] = useState('');
     const [genre, setGenre] = useState('');
@@ -14,12 +15,12 @@ function Create() {
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-
+        //logging the movie to the console
         console.log("Title: "+title+
         " Genre: "+genre+
         " Release Year: "+releaseYear
         + " Director: "+director);
-
+        //constructor
         const movie = {
             title:title,
             cover:cover,
@@ -27,13 +28,13 @@ function Create() {
             releaseYear:releaseYear,
             director:director
         };
-
+        //post to port 4000 server
         axios.post('http://localhost:4000/api/movie',movie)
         .then()
         .catch();
 
     }
-    // some comment
+    // html code for adding movies to database, you add title, cover, genre, director and release year
     return (
         <div>
             <h2 style={{ color: "gold", fontWeight: "bold" }}>Add a movie to my database! </h2>
@@ -43,6 +44,7 @@ function Create() {
                     <input type="text"
                         className="form-control"
                         value={title}
+                        //sets title
                         onChange={(e) => { setTitle(e.target.value) }}
                     />
                 </div>
@@ -51,6 +53,7 @@ function Create() {
                     <input type="text"
                         className="form-control"
                         value={cover}
+                        //sets cover
                         onChange={(e) => { setCover(e.target.value) }}
                     />
                 </div>
@@ -59,6 +62,7 @@ function Create() {
                     <input type="text"
                         className="form-control"
                         value={genre}
+                        //sets genre
                         onChange={(e) => { setGenre(e.target.value) }}
                     />
                 </div>
@@ -67,6 +71,7 @@ function Create() {
                     <input type="number"
                         className="form-control"
                         value={releaseYear}
+                        // sets release year
                         onChange={(e) => { setreleaseYear(e.target.value) }}
                     />
                 </div>
@@ -75,10 +80,12 @@ function Create() {
                     <input type="text"
                         className="form-control"
                         value={director}
+                        //sets director
                         onChange={(e) => { setDirector(e.target.value) }}
                     />
                 </div>
                 <div>
+                    {/* submit button */}
                     <input type="submit"
                     value="Add Movie">
                         </input>

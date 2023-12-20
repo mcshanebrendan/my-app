@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+//import react router dom, axios and Link
 
 function Review() {
   const [movieTitle, setMovieTitle] = useState('');
@@ -21,7 +22,7 @@ function Review() {
       alert('Failed to submit review');
     }
   };
-
+  //submit a review for a movie
   return (
     <div>
       <h3 style={{ color: "gold", fontWeight: "bold" }}>Submit a Review</h3>

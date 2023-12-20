@@ -1,3 +1,5 @@
+//setting up server on port: 4000
+//using mongoose and express
 const express = require('express');
 const app = express();
 const port = 4000;
@@ -52,19 +54,19 @@ app.get('/api/movies', async(req, res) => {
   let movies = await Movie.find({});
   res.json(movies);
 });
-
+//find movie by ID
 app.get('/api/movie/:id', async(req, res) => {
   console.log(req.params.id);
   let movie = await Movie.findById(req.params.id);
   res.send(movie);
 });
-
+//updates movie
 app.put('/api/movie/:id', async(req, res) => {
   console.log("Update: "+req.params.id);
   let movie = await Movie.findByIdAndUpdate(req.params.id, req.body, {new: true});
   res.send(movie);
 });
-
+//deletes movie
 app.delete('/api/movie/:id', async(req, res) => {
   console.log("Delete: "+req.params.id)
   let movie = await Movie.findByIdAndDelete(req.params.id);
@@ -85,7 +87,7 @@ app.post('/api/review', async(req, res) => {
     res.status(500).send("Error adding review");
   }
 });
-
+//server listening on port 400
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });

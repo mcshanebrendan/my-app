@@ -14,7 +14,10 @@ import History from './components/history';
 import Trailers from './components/trailers';
 import TopMovies21stCentury from './components/modernTrailers';
 import imagehome from './assets/images/imagehome.png'
+//imports for app
 
+//below has a navbar for this website that you can select different pages 
+// I also added buttons at the bottom that have a similar purpose of navigating through the website
 function App() {
   return (
     <BrowserRouter>
@@ -24,6 +27,7 @@ function App() {
             {/* Update the logo style with the "Pacifico" font which I added link for in public/index.html*/}
             <Navbar.Brand href="/" style={{ fontFamily: 'Pacifico', color: "gold" }}>Movie Database</Navbar.Brand>
             <Nav className="me-auto">
+              {/* navbar pages */}
               <Nav.Link href="/" style={{ color: "#FFF" }}>Home</Nav.Link>
               <Nav.Link href="/create" style={{ color: "#FFF" }}>Add Movie</Nav.Link>
               <Nav.Link href="/read" style={{ color: "#FFF" }}>Read/Edit Movie</Nav.Link>
@@ -34,6 +38,7 @@ function App() {
             </Nav>
           </Container>
         </Navbar>
+        {/* routes for navbar page */}
         <Routes>
           <Route path='/read' element={<Read />} />
           <Route path='/create' element={<Create />} />
