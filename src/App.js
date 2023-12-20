@@ -49,6 +49,7 @@ function App() {
           <Route path="/modernTrailers" element={<TopMovies21stCentury />} />
         </Routes>
         
+        {/* adding image to home page, image is stored in assets/images folder */}
         <img src={imagehome} alt="Lumiere" className="big-image" />
          {/* adding linebreaks to put the footer further down the page*/}
         <br /><br /><br /><br /><br />
